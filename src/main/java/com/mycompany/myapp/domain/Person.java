@@ -3,6 +3,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,34 +11,44 @@ import java.time.LocalDate;
 /**
  * A Person.
  */
-@Entity
-@Table(name = "person")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Person implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+// @Entity
+// @Table(name = "person")
+// @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@MappedSuperclass
+// public class Person implements Serializable {
+public abstract class Person implements Serializable  {
+    protected static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
-    @Column(name = "names")
-    private String names;
+    @NotNull
+    @Column(name = "names", nullable = false)
+    protected String names;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @NotNull
+    @Column(name = "last_name", nullable = false)
+    protected String lastName;
 
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+    @NotNull
+    @Column(name = "date_of_birth", nullable = false)
+    protected LocalDate dateOfBirth;
 
-    @Column(name = "address_physical")
-    private String addressPhysical;
+    @NotNull
+    @Column(name = "address_physical", nullable = false)
+    protected String addressPhysical;
 
-    @Column(name = "address_postal")
-    private String addressPostal;
+    @NotNull
+    @Column(name = "address_postal", nullable = false)
+    protected String addressPostal;
 
-    @Column(name = "telephone_number")
-    private String telephoneNumber;
+    @NotNull
+    @Column(name = "telephone_number", nullable = false)
+    protected String telephoneNumber;
+
+    @OneToOne
+    @JoinColumn(unique = true)
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -125,6 +136,7 @@ public class Person implements Serializable {
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

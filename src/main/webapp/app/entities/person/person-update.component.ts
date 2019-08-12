@@ -17,12 +17,12 @@ export class PersonUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    names: [],
-    lastName: [],
-    dateOfBirth: [],
-    addressPhysical: [],
-    addressPostal: [],
-    telephoneNumber: []
+    names: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    dateOfBirth: [null, [Validators.required]],
+    addressPhysical: [null, [Validators.required]],
+    addressPostal: [null, [Validators.required]],
+    telephoneNumber: [null, [Validators.required]]
   });
 
   constructor(protected personService: PersonService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

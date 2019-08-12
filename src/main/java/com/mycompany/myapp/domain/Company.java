@@ -3,6 +3,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -22,19 +23,24 @@ public class Company implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @NotNull
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "vat_number")
+    @NotNull
+    @Column(name = "vat_number", nullable = false)
     private String vatNumber;
 
-    @Column(name = "address_physical")
+    @NotNull
+    @Column(name = "address_physical", nullable = false)
     private String addressPhysical;
 
-    @Column(name = "address_postal")
+    @NotNull
+    @Column(name = "address_postal", nullable = false)
     private String addressPostal;
 
-    @Column(name = "telephone_number")
+    @NotNull
+    @Column(name = "telephone_number", nullable = false)
     private String telephoneNumber;
 
     @OneToMany(mappedBy = "company")

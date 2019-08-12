@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -46,7 +47,7 @@ public class CompanyResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/companies")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company) throws URISyntaxException {
+    public ResponseEntity<Company> createCompany(@Valid @RequestBody Company company) throws URISyntaxException {
         log.debug("REST request to save Company : {}", company);
         if (company.getId() != null) {
             throw new BadRequestAlertException("A new company cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +68,7 @@ public class CompanyResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/companies")
-    public ResponseEntity<Company> updateCompany(@RequestBody Company company) throws URISyntaxException {
+    public ResponseEntity<Company> updateCompany(@Valid @RequestBody Company company) throws URISyntaxException {
         log.debug("REST request to update Company : {}", company);
         if (company.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -46,7 +47,7 @@ public class PersonResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/people")
-    public ResponseEntity<Person> createPerson(@RequestBody Person person) throws URISyntaxException {
+    public ResponseEntity<Person> createPerson(@Valid @RequestBody Person person) throws URISyntaxException {
         log.debug("REST request to save Person : {}", person);
         if (person.getId() != null) {
             throw new BadRequestAlertException("A new person cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +68,7 @@ public class PersonResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/people")
-    public ResponseEntity<Person> updatePerson(@RequestBody Person person) throws URISyntaxException {
+    public ResponseEntity<Person> updatePerson(@Valid @RequestBody Person person) throws URISyntaxException {
         log.debug("REST request to update Person : {}", person);
         if (person.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

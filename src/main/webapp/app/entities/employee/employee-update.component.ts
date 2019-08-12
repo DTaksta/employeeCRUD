@@ -23,13 +23,13 @@ export class EmployeeUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    names: [],
-    lastName: [],
-    dateOfBirth: [],
-    addressPhysical: [],
-    addressPostal: [],
-    telephoneNumber: [],
-    employeeNumber: [],
+    names: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    dateOfBirth: [null, [Validators.required]],
+    addressPhysical: [null, [Validators.required]],
+    addressPostal: [null, [Validators.required]],
+    telephoneNumber: [null, [Validators.required]],
+    employeeNumber: [null, [Validators.required]],
     company: []
   });
 

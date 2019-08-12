@@ -15,11 +15,11 @@ export class CompanyUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [],
-    vatNumber: [],
-    addressPhysical: [],
-    addressPostal: [],
-    telephoneNumber: []
+    name: [null, [Validators.required]],
+    vatNumber: [null, [Validators.required]],
+    addressPhysical: [null, [Validators.required]],
+    addressPostal: [null, [Validators.required]],
+    telephoneNumber: [null, [Validators.required]]
   });
 
   constructor(protected companyService: CompanyService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

@@ -13,26 +13,56 @@
                     <label class="form-control-label" for="field_name">Name</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"/>
+                    <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_vatNumber">Vat Number</label>
                     <input type="text" class="form-control" name="vatNumber" id="field_vatNumber"
                            formControlName="vatNumber"/>
+                    <div *ngIf="editForm.get('vatNumber').invalid && (editForm.get('vatNumber').dirty || editForm.get('vatNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vatNumber').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_addressPhysical">Address Physical</label>
                     <input type="text" class="form-control" name="addressPhysical" id="field_addressPhysical"
                            formControlName="addressPhysical"/>
+                    <div *ngIf="editForm.get('addressPhysical').invalid && (editForm.get('addressPhysical').dirty || editForm.get('addressPhysical').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addressPhysical').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_addressPostal">Address Postal</label>
                     <input type="text" class="form-control" name="addressPostal" id="field_addressPostal"
                            formControlName="addressPostal"/>
+                    <div *ngIf="editForm.get('addressPostal').invalid && (editForm.get('addressPostal').dirty || editForm.get('addressPostal').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addressPostal').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_telephoneNumber">Telephone Number</label>
                     <input type="text" class="form-control" name="telephoneNumber" id="field_telephoneNumber"
                            formControlName="telephoneNumber"/>
+                    <div *ngIf="editForm.get('telephoneNumber').invalid && (editForm.get('telephoneNumber').dirty || editForm.get('telephoneNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephoneNumber').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
             </div>
