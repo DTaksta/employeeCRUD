@@ -13,6 +13,7 @@ Search - Elastic Search ontop of database.
 Building - Maven
 Client - AngularJS 8.0.2
 Server - Spring Boot 5.1.8
+SwaggerUI for automatic API documentation
 Java - 1.8
 
 ## Development
