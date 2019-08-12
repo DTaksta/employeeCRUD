@@ -1,6 +1,19 @@
 # employeeManagement
 
 This application was generated using JHipster 6.2.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.2.0](https://www.jhipster.tech/documentation-archive/v6.2.0).
+Jhipster is application generator for Spring and Angular/React projects.
+The application has been tailored and fit for purpose, with inheritance not natively included in JHipster so had to be implimented manually from Person to Employee class. As a result this breaks some of the Jhipster unit tests but that can be covered addressed another time.
+One of the advantages of JHipster is that it allows for fast development and deployment of applications and uses latest version of its package in most cases.
+A disadvantage is that it might not always have the latest version of the package having said that it is currently using the latest version of AngularJS.
+Another disadvantage is that it may have clunky code of any type of yeomen generator of its sort, and tightly coupled, like if one wanted to not use Spring.
+Here are some of the technology used.
+Authentication - HTTP Sesssion Authentication
+Database - MySQL 5.7
+Search - Elastic Search ontop of database.
+Building - Maven
+Client - AngularJS 8.0.2
+Server - Spring Boot 5.1.8
+Java - 1.8
 
 ## Development
 
